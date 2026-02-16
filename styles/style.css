@@ -1,5 +1,353 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  display: grid;
+  gap: 40px;
+  margin: 0;
+  font-family: var(--font-family, sans-serif);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.title {
+  color: var(--title-color);
+  font-weight: var(--text-weight-bold);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-style: normal;
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0px var(--shadow-color);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  height: 100vh;
+  min-height: 668px;
+  padding: 10px;
+}
+
+.header__rec {
+  position: absolute;
+  top: 10px;
+  right: 6px;
+  display: var(--display-rec);
+  justify-self: end;
+  padding-right: 32px;
+  color: var(--accent-color);
+  font-size: var(--main-font-size, 18px);
+  line-height: 139%;
+  text-transform: uppercase;
+}
+
+.header__rec::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px #ff0070;
+  background-color: var(--accent-color);
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 3px 13px;
+  color: var(--accent-color);
+  font-size: var(--main-font-size, 18px);
+  line-height: 100%;
+  text-transform: lowercase;
+  background-color: transparent;
+}
+
+.header__theme-menu-button:hover {
+  border: var(--nav-hover-color) solid 1px;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: var(--accent-color) solid 1px;
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  border: var(--accent-color) solid 1px;
+  pointer-events: none;
+}
+
+.header__text {
+  grid-row: 3;
+  justify-self: end;
+  color: var(--text-accent-color);
+  font-family: var(--font-family), sans-serif;
+  font-weight: var(--text-weight-bold);
+  font-size: var(--main-font-size);
+  background-color: var(--text-bg-color);
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
+}
+
+/* MAIN */
+.content {
+  display: grid;
+  gap: 50px;
+  padding: 0 10px;
+}
+
+.content__section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.content__section-title {
+  color: var(--accent-color);
+  font-weight: var(--text-weight-bold, 700);
+  font-size: var(--main-font-size, 18px);
+  line-height: 130%;
+}
+
+.content__group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content__block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content__block-title {
+  color: var(--text-accent-color);
+  font-family: var(--font-family, sans-serif);
+  font-weight: var(--text-weight-bold, 700);
+  font-size: var(--main-font-size, 18px);
+  background-color: var(--text-bg-color);
+}
+
+.content__advice-title {
+  color: var(--text-accent-color);
+  font-family: var(--font-family, sans-serif);
+  font-weight: var(--text-weight-bold, 700);
+  font-size: var(--main-font-size, 18px);
+  background-color: var(--text-bg-color);
+}
+
+.content__text {
+  color: var(--main-text-color);
+  font-size: var(--main-font-size, 18px);
+  line-height: 130%;
+}
+
+.text__link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+.text__link:hover {
+  text-decoration: underline;
+}
+
+.text__link:focus-visible {
+  border: none;
+  outline: var(--main-text-color) solid 1px;
+}
+
+.content__subtitle {
+  color: var(--text-accent-color);
+  font-family: var(--font-family, sans-serif);
+  font-weight: 400;
+  font-size: var(--main-font-size, 18px);
+  line-height: 130%;
+  background-color: var(--shadow-color);
+}
+
+.images {
+  gap: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  block-size: 100vh;
+  min-block-size: 668px;
+}
+
+@media (width >=768px) {
+  .page {
+    gap: 60px;
+  }
+
+  .decorated-zone::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+
+  .decorated-zone::after {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .header__rec {
+    top: 20px;
+    right: 16px;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+
+  .header__text {
+    grid-column: 2;
+  }
+
+  .header__title {
+    grid-column: span 2;
+    margin-left: -20px;
+  }
+
+  .header__theme-menu {
+    grid-column: 2;
+  }
+
+  .content {
+    gap: 80px;
+    padding: 0 20px;
+  }
+
+  .content__section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .content__group {
+    grid-column: span 2;
+  }
+
+  .content__section-title {
+    grid-column: 1;
+    min-inline-size: 236px;
+  }
+
+  .question .content__group {
+    grid-column: span 3;
+    grid-row: 2;
+  }
+
+  .advice .content__group {
+    grid-column: 2/4;
+  }
+
+  .images .content__block-title {
+    grid-column: span 3;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-column: span 3;
+    gap: 20px;
+  }
+
+  .gallery__image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .gallery__image:nth-child(2) {
+    grid-column: 3;
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  .gallery__image:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .gallery__image:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (width >=1024px) {
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header__theme-menu {
+    grid-column: span 2;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .title {
+    font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  }
+
+  .question .content__group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
