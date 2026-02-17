@@ -3,7 +3,7 @@
 .page {
   display: grid;
   gap: 40px;
-  margin: 0;
+  margin: 0 auto;
   font-family: var(--font-family, monospace);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
@@ -159,14 +159,6 @@
 }
 
 .content__block-title {
-  color: var(--text-accent-color);
-  font-family: var(--font-family, monospace);
-  font-weight: var(--text-weight-bold, 700);
-  font-size: var(--main-font-size, 18px);
-  background-color: var(--text-bg-color);
-}
-
-.content__advice-title {
   color: var(--text-accent-color);
   font-family: var(--font-family, monospace);
   font-weight: var(--text-weight-bold, 700);
